@@ -1,4 +1,60 @@
+# Diabetic Patient Readmission Risk Prediction
 
+## 📋 Project Overview
+This project developed a machine learning solution to predict diabetic patient readmission risk based on healthcare input data. The implementation leverages **PySpark** for distributed data processing and **Power BI** for interactive visualization and business intelligence.
+
+### 🎯 Business Problem
+The high frequency of unplanned readmissions for diabetic patients within 30 days of discharge drives up healthcare costs, hinders operational efficiency, and serves as a key benchmark for assessing hospital care quality. In the US, preventable readmission costs **$26B+ annually** and our healthcare 30-day readmission rate is **18%**, above the national average.
+
+Multiple models (logistic regression, tree-based, and SVM) were developed and evaluated on performance metrics (accuracy, precision, recall, F1 score, ROC AUC) and explainability (SHAP and permutation importance).
+
+## 🎯 Project Scope
+Predicting which diabetic patients are most likely to be readmitted within 30 days enables proactive care (e.g., follow-up calls, home care visits) and identifies effective treatment strategies.
+
+### Key Objectives:
+- **Pinpoint** key clinical and demographic factors driving high readmission rates
+- **Evaluate** the impact of specific medications and treatment patterns on patient outcomes
+- **Empower** hospital teams to prioritize high-risk patients for early intervention
+- **Deploy** a robust, scalable machine learning pipeline that integrates with existing data infrastructure
+
+## 📊 Dataset
+The dataset comprises 10 years of clinical records for over 100,000 diabetic patients sourced from the Diabetes 130-US Hospitals dataset.
+
+**Dataset Statistics:**
+- **101,766** encounters with **50 features**
+- Covers demographics, treatments, and lab results
+
+### Data Features:
+| Category | Features |
+|----------|----------|
+| **Patient Identifiers** | `encounter_id`, `patient_nbr` |
+| **Patient Demographics** | `race`, `gender`, `age`, `weight`, `payer_code` |
+| **Admission Details** | `admission_source_id`, `admission_type_id`, `discharge_disposition_id` |
+| **Medical History** | `number_outpatient`, `number_inpatient`, `number_emergency` |
+| **Admission Details** | `time_in_hospital`, `number_diagnoses`, `num_lab_procedures`, `num_procedures`, `medical_specialty`, `diag_1`, `diag_2`, `diag_3` |
+| **Clinical Results** | `max_gluc_serum`, `A1cresult` |
+| **Medication Details** | `diabetesMed`, `change`, `num_medications`, +23 medication features |
+| **Target Variable** | `readmitted`: class variable (0 or 1) |
+
+### Sample Data (First 5 rows)
+| encounter_id | patient_nbr | race | gender | age | weight | admission_type_id | discharge_disposition_id | admission_source_id | time_in_hospital | ... | readmitted |
+|--------------|-------------|------|--------|-----|--------|------------------|--------------------------|-------------------|------------------|-----|------------|
+| 2278392 | 8222157 | Caucasian | Female | [0-10) | ? | 6 | 25 | 1 | 1 | ... | >30 |
+| 149190 | 55629189 | Caucasian | Female | [10-20) | ? | 1 | 1 | 7 | 3 | ... | >30 |
+| 64410 | 86047875 | AfricanAmerican | Female | [20-30) | ? | 1 | 1 | 7 | 2 | ... | NO |
+| 500364 | 82442376 | Caucasian | Male | [30-40) | ? | 1 | 1 | 7 | 2 | ... | NO |
+| 16680 | 42519267 | Caucasian | Male | [40-50) | ? | 1 | 1 | 7 | 1 | ... | NO |
+
+### Statistical Summary
+| Metric | encounter_id | patient_nbr | time_in_hospital | num_lab_procedures | num_procedures | num_medications | number_outpatient | number_emergency | number_inpatient | number_diagnoses |
+|--------|--------------|-------------|------------------|-------------------|---------------|----------------|------------------|-----------------|-----------------|-----------------|
+| **Count** | 101,766 | 101,766 | 101,766 | 101,766 | 101,766 | 101,766 | 101,766 | 101,766 | 101,766 | 101,766 |
+| **Mean** | 1.65E8 | 5.43E7 | 4.40 | 43.10 | 1.34 | 16.02 | 0.37 | 0.20 | 0.64 | 7.42 |
+| **Std Dev** | 1.03E8 | 3.87E7 | 2.99 | 19.67 | 1.71 | 8.13 | 1.27 | 0.93 | 1.26 | 1.93 |
+| **Min** | 12,522 | 135 | 1 | 1 | 0 | 1 | 0 | 0 | 0 | 1 |
+| **Max** | 443M | 189M | 14 | 132 | 6 | 81 | 42 | 76 | 21 | 16 |
+Data → PySpark ETL → Feature Engineering → Model Training → Explainability → Dashboard
+## 🏗️ Model Pipeline
 ### Pipeline Components:
 1. **Data Processing & ETL** (`01_Data_Ingest_and_ETL_(PySpark).ipynb`)
    - PySpark for distributed ETL, cleaning, and data transformation
