@@ -39,22 +39,24 @@ The dataset comprises 10 years of clinical records for over 100,000 diabetic pat
 ### Sample Data (First 5 rows)
 | encounter_id | patient_nbr | race | gender | age | weight | admission_type_id | discharge_disposition_id | admission_source_id | time_in_hospital | ... | readmitted |
 |--------------|-------------|------|--------|-----|--------|------------------|--------------------------|-------------------|------------------|-----|------------|
-| 2278392 | 8222157 | Caucasian | Female | [0-10) | ? | 6 | 25 | 1 | 1 | ... | >30 |
-| 149190 | 55629189 | Caucasian | Female | [10-20) | ? | 1 | 1 | 7 | 3 | ... | >30 |
-| 64410 | 86047875 | AfricanAmerican | Female | [20-30) | ? | 1 | 1 | 7 | 2 | ... | NO |
-| 500364 | 82442376 | Caucasian | Male | [30-40) | ? | 1 | 1 | 7 | 2 | ... | NO |
-| 16680 | 42519267 | Caucasian | Male | [40-50) | ? | 1 | 1 | 7 | 1 | ... | NO |
+| 2278393 | 8222157 | Caucasian | Female | [0-10) | NULL | 6 | 25 | 1 | 1 | ... | >30 |
+| 149194 | 55629189 | Caucasian | Female | [10-20) | NULL | 1 | 1 | 7 | 3 | ... | >30 |
+| 64495 | 86047875 | AfricanAmerican | Female | [20-30) | NULL | 1 | 1 | 7 | 2 | ... | NO |
+| 500396 | 82442376 | Caucasian | Male | [30-40) | NLL | 1 | 1 | 7 | 2 | ... | NO |
+| 16697 | 42519267 | Caucasian | Male | [40-50) | NULL | 1 | 1 | 7 | 1 | ... | NO |
 
 ### Statistical Summary
-| Metric | encounter_id | patient_nbr | time_in_hospital | num_lab_procedures | num_procedures | num_medications | number_outpatient | number_emergency | number_inpatient | number_diagnoses |
+| Metric |  time_in_hospital | num_lab_procedures | num_procedures | num_medications | number_outpatient | number_emergency | number_inpatient | number_diagnoses |
 |--------|--------------|-------------|------------------|-------------------|---------------|----------------|------------------|-----------------|-----------------|-----------------|
-| **Count** | 101,766 | 101,766 | 101,766 | 101,766 | 101,766 | 101,766 | 101,766 | 101,766 | 101,766 | 101,766 |
-| **Mean** | 1.65E8 | 5.43E7 | 4.40 | 43.10 | 1.34 | 16.02 | 0.37 | 0.20 | 0.64 | 7.42 |
-| **Std Dev** | 1.03E8 | 3.87E7 | 2.99 | 19.67 | 1.71 | 8.13 | 1.27 | 0.93 | 1.26 | 1.93 |
-| **Min** | 12,522 | 135 | 1 | 1 | 0 | 1 | 0 | 0 | 0 | 1 |
-| **Max** | 443M | 189M | 14 | 132 | 6 | 81 | 42 | 76 | 21 | 16 |
-Data → PySpark ETL → Feature Engineering → Model Training → Explainability → Dashboard
+| **Count** |  101,766 | 101,766 | 101,766 | 101,766 | 101,766 | 101,766 | 101,766 | 101,766 |
+| **Mean** |  4.40 | 43.10 | 1.34 | 16.02 | 0.37 | 0.20 | 0.64 | 7.42 |
+| **Std Dev** |  | 2.99 | 19.67 | 1.71 | 8.13 | 1.27 | 0.93 | 1.26 | 1.93 |
+| **Min** |1 | 1 | 0 | 1 | 0 | 0 | 0 | 1 |
+| **Max** | 14 | 132 | 6 | 81 | 42 | 76 | 21 | 16 |
+
 ## 🏗️ Model Pipeline
+Data → PySpark ETL → Feature Engineering → Model Training → Explainability → Dashboard
+
 ### Pipeline Components:
 1. **Data Processing & ETL** (`01_Data_Ingest_and_ETL_(PySpark).ipynb`)
    - PySpark for distributed ETL, cleaning, and data transformation
