@@ -1,0 +1,51 @@
+﻿# Virtual environments
+.venv*/
+.venv_py311/
+venv/
+env/
+.venv/
+
+# Data files
+data/output/
+data/raw/
+data/diabetes_130_us_hospitals/
+*.csv
+*.xlsx
+*.parquet
+*.feather
+
+# Model files
+model/
+models/
+*.pkl
+*.joblib
+
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Large files
+*.jar
+*.dll
+*.zip

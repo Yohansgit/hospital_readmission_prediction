@@ -1,0 +1,23 @@
+# This is a basic Databricks asset bundle definition.
+# See https://docs.databricks.com/dev-tools/bundles/index.html for documentation.
+bundle:
+  name: hospital-readmission-project
+  # Add this section to automatically upload all files in the notebooks directory
+
+resources:
+  jobs:
+    readmission-job:
+      name: readmission-training-job
+      tasks:
+        - task_key: run-training-notebook
+          notebook_task:
+            # The path inside the workspace will mirror your local structure:
+            notebook_path: ./notebooks/03_Model_Training_and_Evaluation.ipynb 
+          new_serverless_cluster:
+            spark_version: 12.2.x-scala2.12
+            num_workers: 1
+targets:
+  # The 'default' target is used by the 'bundle deploy' command
+  default:
+    workspace:
+      host: https://dbc-833d4483-972a.cloud.databricks.com
