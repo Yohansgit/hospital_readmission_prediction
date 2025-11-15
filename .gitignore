@@ -17,8 +17,9 @@ data/diabetes_130_us_hospitals/
 # Model files
 model/
 models/
-*.pkl
 *.joblib
+
+
 
 # Python
 __pycache__/
