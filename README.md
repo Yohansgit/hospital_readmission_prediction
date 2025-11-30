@@ -24,24 +24,19 @@ The high frequency of unplanned readmissions for diabetic patients within 30 day
 This section proves the technical rigor and strategic thinking behind the project.
 **1. Project Architecture:**
 
+```mermaid
 flowchart TD
 
-    %% Style
-    classDef dim fill:#f2f2f2,stroke:#999,stroke-width:1px;
-    classDef proc fill:#d9ebff,stroke:#1a73e8,stroke-width:1.5px;
-    classDef model fill:#ffe9cc,stroke:#ff9900,stroke-width:1.5px;
-    classDef viz fill:#e8ffe8,stroke:#34a853,stroke-width:1.5px;
+    A[Raw Data Source<br/>"Diabetes 130-US Hospitals Dataset"]
+    B[Databricks<br/>PySpark Ingest & ETL]
+    C[PySpark Feature Engineering]
+    D[Model Training<br/>LightGBM]
+    E[Model Output<br/>Risk Scores + Tiers]
+    F[Power BI Dashboard]
 
-    %% Nodes
-    A[Raw Data Source<br/>"Diabetes 130-US Hospitals Dataset"]:::dim
-    B[Databricks<br/>PySpark Ingest & ETL<br/>- Cleaning<br/>- Deduplication<br/>- Null Handling]:::proc
-    C[PySpark Feature Engineering<br/>- Encodings<br/>- Imputation<br/>- Aggregations<br/>- Train/Val/Test Splits]:::proc
-    D[Model Training<br/>LightGBM on Databricks<br/>- Hyperparameter Tuning<br/>- Cross-Validation]:::model
-    E[Model Output<br/>Risk Scores (0–1)<br/>High / Medium / Low Flags]:::model
-    F[Power BI Dashboard<br/>Interactive Risk Stratification<br/>Care Team Insights]:::viz
-
-    %% Connections
     A --> B --> C --> D --> E --> F
+```
+
 
 
 
