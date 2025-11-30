@@ -47,6 +47,8 @@ flowchart TD
 
 
 
+
+
 Multiple models (logistic regression, tree-based, and SVM) were developed and evaluated on performance metrics (accuracy, precision, recall, F1 score, ROC AUC) and explainability (SHAP and permutation importance).
 
 ## 🎯 Project Scope
