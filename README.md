@@ -26,7 +26,7 @@ In this project, a machine learning solution to predict diabetic patient readmis
 **🎯The Problem:**     
 The high frequency of unplanned readmissions for diabetic patients within 30 days of discharge drives up healthcare costs, hinders operational efficiency, and serves as a key benchmark for assessing hospital care quality. In the US, preventable readmission costs **$26 billion annually**, and our hospital's 30-day readmission rate is **18%**, 3 points above the national average.    
 
-**💡 The Solution:** 
+**💡 The Solution:**    
 I developed a scalable machine learning pipeline to **predict which diabetic patients are most likely to be readmitted within 30 days**. This tool empowers hospital teams to prioritize high-risk patients for proactive, post-discharge interventions (e.g., follow-up calls, home care visits).     
   
 **📈 The Outcome**:  
@@ -65,8 +65,10 @@ flowchart TD
 ```
 ## 2. Strategic Tech Choices:
 
-**🔷 Why PySpark on Databricks?** Most such datasets contain over 100,000 patient encounters. A standard single-machine workflow (Pandas) would be slow and inefficient. I chose `PySpark` on `Databricks` to build a robust, scalable, and production-ready ETL pipeline that can handle this volume and be easily adapted to a live, streaming EMR data feed.      
-**🔷 Why Power BI?** The model's output (a risk score) is useless unless it's in the hands of a non-technical clinician. I built an interactive Power BI dashboard to translate the model's complex output into a simple, actionable "High/Medium/Low Risk" flag for doctors and care managers.      
+**🔷 Why PySpark on Databricks?**           
+Most such datasets contain over 100,000 patient encounters. A standard single-machine workflow (Pandas) would be slow and inefficient. I chose `PySpark` on `Databricks` to build a robust, scalable, and production-ready ETL pipeline that can handle this volume and be easily adapted to a live, streaming EMR data feed.      
+**🔷 Why Power BI?**        
+The model's output (a risk score) is useless unless it's in the hands of a non-technical clinician. I built an interactive Power BI dashboard to translate the model's complex output into a simple, actionable "High/Medium/Low Risk" flag for doctors and care managers.      
 
 ## 🔍 Part 4: Insights Deep Dive (The "What Did You Find?")   
 
