@@ -68,7 +68,7 @@ flowchart TD
 **🔷 Why PySpark on Databricks?** Most such datasets contain over 100,000 patient encounters. A standard single-machine workflow (Pandas) would be slow and inefficient. I chose `PySpark` on `Databricks` to build a robust, scalable, and production-ready ETL pipeline that can handle this volume and be easily adapted to a live, streaming EMR data feed.      
 **🔷 Why Power BI?** The model's output (a risk score) is useless unless it's in the hands of a non-technical clinician. I built an interactive Power BI dashboard to translate the model's complex output into a simple, actionable "High/Medium/Low Risk" flag for doctors and care managers.      
 
-## 🔍 Part 4: Insights Deep Dive (The "What Did You Find?")   
+##🔍 Part 4: Insights Deep Dive (The "What Did You Find?")   
 
 **🏥 Finding 1: `Discharge Disposition` - The Path Home Matters**   
 **Insight:** 
@@ -90,9 +90,9 @@ Non-home discharges (e.g., to a rehab facility or skilled nursing facility) **in
 **For Care Management (The "Users"):**       
    ➡️**Action:** Use the Power BI dashboard to **stratify all discharging patients** into risk tiers. Enroll all "High-Risk" patients in an automated 48-hour follow-up call system.      
 **For Clinical Leadership (The "Strategists"):**       
-   ➡️**Action:** Launch a 'deep-dive' investigation into the **top 3 Discharge Dispositions** driving readmissions to identify gaps in our partner facility network.       
+   ➡️**Action:** Launch a 'deep-dive' investigation into the **top 3 `Discharge Dispositions`** driving readmissions to identify gaps in our partner facility network.       
 **For the Data & IT Team (The "Peers"):**     
-   ➡️**Action:** The next step is to move this model from a static CSV to a **live EMR data stream**. The PySpark foundation is already built, allowing for a transition to real-time risk scoring.     
+   ➡️**Action:** The next step is to move this model from a static CSV to a **live EMR data stream**. The `PySpark` foundation is already built, allowing for a transition to real-time risk scoring.     
 
 ##📊 Part 6: Model Performance
 A note on metrics for this imbalanced dataset. The target variable (`readmitted < 30 days`) only represents ~11% of the data. This means a naive model that always predicts "No Readmission" would have 89% accuracy.    
