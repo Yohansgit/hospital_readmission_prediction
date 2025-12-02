@@ -26,10 +26,10 @@ In this project, a machine learning solution to predict diabetic patient readmis
 **🎯The Problem:**     
 The high frequency of unplanned readmissions for diabetic patients within 30 days of discharge drives up healthcare costs, hinders operational efficiency, and serves as a key benchmark for assessing hospital care quality. In the US, preventable readmission costs **$26 billion annually**, and our hospital's 30-day readmission rate is **18%**, 3 points above the national average.    
 
-**💡 The Solution:**    
+**💡 The Solution:**     
 I developed a scalable machine learning pipeline to **predict which diabetic patients are most likely to be readmitted within 30 days**. This tool empowers hospital teams to prioritize high-risk patients for proactive, post-discharge interventions (e.g., follow-up calls, home care visits).     
   
-**📈 The Outcome**:  
+**📈 The Outcome**:       
 The final model (LightGBM) **identifies high-risk patients with 0.72 ROC AUC** (see performance note below). The analysis revealed that readmission risk is shaped by a mix of clinical severity, care transitions, and patient complexity. Key drivers include `Discharge Disposition`, `Time in Hospital`, and `Metformin adjustments`.    
 
 #### 🚀 Part 3: Technical Architecture (The "How?")      
