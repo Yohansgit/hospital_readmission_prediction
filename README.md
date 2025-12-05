@@ -30,7 +30,7 @@ The high frequency of unplanned readmissions for diabetic patients within 30 day
 I developed a scalable machine learning pipeline to **predict which diabetic patients are most likely to be readmitted within 30 days**. This tool empowers hospital teams to prioritize high-risk patients for proactive, post-discharge interventions (e.g., follow-up calls, home care visits).     
   
 **📈 The Outcome**:       
-The final model (LightGBM) **identifies high-risk patients with 0.72 ROC AUC** (see performance note below). The analysis revealed that readmission risk is shaped by a mix of clinical severity, care transitions, and patient complexity. Key drivers include `Discharge Disposition`, `Time in Hospital`, and `Metformin adjustments`.    
+The final model (LightGBM) **identifies high-risk patients with 0.72 ROC AUC** (see performance note below). The analysis revealed that readmission risk is shaped by a mix of clinical severity, care transitions, and patient complexity. Key drivers include `Metformin adjustments`, `Discharge Disposition`, and `Time in Hospital`.    
 
 #### 🚀 Part 3: Technical Architecture (The "How?")      
   
@@ -72,21 +72,22 @@ The model's output (a risk score) is useless unless it's in the hands of a non-t
 
 ## 🔍 Part 4: Insights Deep Dive (The "What Did You Find?")   
 
-**🏥 Finding 1: `Discharge Disposition` - The Path Home Matters**   
+**🎯 Finding 1: `Metformin` - A Key Medication Marker**          
+**Insight:** Patients who had their **Metformin dosage** changed or were newly prescribed it are **1.8x more likely to be readmitted**. This signals potential issues with medication adherence or diabetes management.   
+**Priority Action:** Implement targeted medication counseling and follow-up for any patient whose diabetes medication regimen is altered during their hospital stay.        
+📊 [View Time in Hospital Chart](images/metformin_chart.png)      
+
+**🏥 Finding 2: `Discharge Disposition` - The Path Home Matters**        
 **Insight:** 
 Non-home discharges (e.g., to a rehab facility or skilled nursing facility) **increase readmission risk by 2.3x**. This is a critical moment of care transition.     
 **Priority Action:** Implement enhanced care coordination and data sharing for patients not being discharged directly to their homes.    
-📊 [View 30-Day Readmission Chart](images/discharge_disposition_chart.png)          
+📊 [View 30-Day Readmission Chart](images/discharge_disposition_chart.png)            
 
-**⏰ Finding 2: `Time in Hospital` - The Clock of Severity**  
+**⏰ Finding 2: `Time in Hospital` - The Clock of Severity**    
 **Insight:** Risk increases significantly with length of stay. Stays of **7–10 days increase readmission risk by 60%** compared to shorter stays, indicating higher patient complexity.    
 **Priority Action:** Automatically flag patients with stays >7 days for a mandatory post-discharge consultation with a care specialist.     
 📊 [View Time in Hospital Chart](images/time_in_hospital_chart.png)      
-
-**🎯 Finding 3: `Metformin` - A Key Medication Marker**          
-**Insight:** Patients who had their **Metformin dosage** changed or were newly prescribed it are **1.8x more likely to be readmitted**. This signals potential issues with medication adherence or diabetes management.   
-**Priority Action:** Implement targeted medication counseling and follow-up for any patient whose diabetes medication regimen is altered during their hospital stay.        
-📊 [View Time in Hospital Chart](images/metformin_chart.png)       
+   
 
 ## Part 5: Actionable Recommendations (The "Now What?")    
 **For Care Management (The "Users"):**       
