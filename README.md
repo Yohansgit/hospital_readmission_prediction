@@ -83,10 +83,10 @@ Non-home discharges (e.g., to a rehab facility or skilled nursing facility) **in
 **Priority Action:** Automatically flag patients with stays >7 days for a mandatory post-discharge consultation with a care specialist.     
 📊 [View Time in Hospital Chart](images/time_in_hospital_chart.png)      
 
-**🎯 Finding 3: `Metformin` - A Key Medication Marker**   
-**Insight:** Patients who had their **Metformin dosage** changed or were newly prescribed it are **1.8x more likely to be readmitted**. This signals potential issues with medication adherence or diabetes management.
-**Priority Action:** Implement targeted medication counseling and follow-up for any patient whose diabetes medication regimen is altered during their hospital stay.
-📊 [View Time in Hospital Chart](images/metformin_chart.png)     
+**🎯 Finding 3: `Metformin` - A Key Medication Marker**          
+**Insight:** Patients who had their **Metformin dosage** changed or were newly prescribed it are **1.8x more likely to be readmitted**. This signals potential issues with medication adherence or diabetes management.   
+**Priority Action:** Implement targeted medication counseling and follow-up for any patient whose diabetes medication regimen is altered during their hospital stay.        
+📊 [View Time in Hospital Chart](images/metformin_chart.png)       
 
 ## Part 5: Actionable Recommendations (The "Now What?")    
 **For Care Management (The "Users"):**       
