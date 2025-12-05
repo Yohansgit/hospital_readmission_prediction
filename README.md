@@ -75,18 +75,18 @@ The model's output (a risk score) is useless unless it's in the hands of a non-t
 **🏥 Finding 1: `Discharge Disposition` - The Path Home Matters**   
 **Insight:** 
 Non-home discharges (e.g., to a rehab facility or skilled nursing facility) **increase readmission risk by 2.3x**. This is a critical moment of care transition.     
-**Priority Action:** Implement enhanced care coordination and data sharing for patients not being discharged directly to their homes.     
-![30-Day Readmission Rate](images/discharge_disposition_chart.png)    
+**Priority Action:** Implement enhanced care coordination and data sharing for patients not being discharged directly to their homes.    
+📊 [View 30-Day Readmission Chart](images/discharge_disposition_chart.png)          
 
 **⏰ Finding 2: `Time in Hospital` - The Clock of Severity**  
 **Insight:** Risk increases significantly with length of stay. Stays of **7–10 days increase readmission risk by 60%** compared to shorter stays, indicating higher patient complexity.    
 **Priority Action:** Automatically flag patients with stays >7 days for a mandatory post-discharge consultation with a care specialist.     
-![30-Day Readmission Rate](images/time_in_hospital_chart.png)    
+📊 [View Time in Hospital Chart](images/time_in_hospital_chart.png)      
 
 **🎯 Finding 3: `Metformin` - A Key Medication Marker**   
 **Insight:** Patients who had their **Metformin dosage** changed or were newly prescribed it are **1.8x more likely to be readmitted**. This signals potential issues with medication adherence or diabetes management.
 **Priority Action:** Implement targeted medication counseling and follow-up for any patient whose diabetes medication regimen is altered during their hospital stay.
-![30-Day Readmission Rate](images/metformin_chart.png)      
+📊 [View Time in Hospital Chart](images/metformin_chart.png)     
 
 ## Part 5: Actionable Recommendations (The "Now What?")    
 **For Care Management (The "Users"):**       
@@ -130,7 +130,7 @@ The primary metric for this business problem is **ROC AUC** (Area Under the Rece
 Download the "Diabetes 130-US hospitals" dataset (instructions in /`data/README.md`).   
 Import the PySpark notebooks into your Databricks environment.  
 Run the ETL -> Feature Engineering -> Modeling pipeline sequentially.  
-Open the Power BI file (`Hospital_Readmission_Dashboard.pbix`) to explore the interactive results.   
+Open the Power BI file [Trifecta Dashboard](images/trifecta_dashboard.png) to explore the interactive results.   
 
 ## 📄 License  
 This project is licensed under the **MIT License**.  
