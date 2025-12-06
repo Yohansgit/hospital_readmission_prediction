@@ -38,9 +38,9 @@ The final model (LightGBM) **identifies high-risk patients with 0.72 ROC AUC** (
 ```mermaid   
 flowchart TD
     %% --- Nodes ---
-    A[!Define the Probelem]:::source
-    B[📥 Raw Data Source<br>EHR Diabetes Dataset]:::source
-    C[🛠 ETL & Feature Engineering]:::process
+    A[📝 Define the Probelem]:::source
+    B[📥 Data collection & EDA]:::source
+    C[🛠 Data Wragling]:::process
     D[🔍 Model Selection]:::process
     E[🤖 Model Training<br>LightGBM]:::model
     F[🔁 Cross Validation & Hyperparameter Tuning]:::model
