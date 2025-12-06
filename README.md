@@ -43,7 +43,7 @@ flowchart TD
     B["📥 Ingest Raw Data (CSV/S3)"]:::source
     C[🛠 PySpark on Databricks]:::process
     D[🔍 Train/Test Split]:::process
-    E[🤖 Distributed Training<br>(Train LightGBM Model)]:::model
+    E["🤖 Distributed Training<br>(Train LightGBM Model)"]:::model
     F[🔁 Cross Validation & Hyperparameter Tuning]:::model
     G{✅ Performance OK?}:::decision
     H[📊 Risk Scores to Power BI<br>Yes / No]:::output
