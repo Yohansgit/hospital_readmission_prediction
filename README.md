@@ -14,10 +14,10 @@ In this project, a machine learning solution to predict diabetic patient readmis
 
 ## 🎥 Part 1: The Project "Trifecta"   
 
-| Video Walkthrough (5 min)            | Interactive Dashboard                 | Public Notebook                  |
-| ------------------------------------ | ----------------------------------    | -------------------------------- |
-|  (images/Coming soon Graphics.png)   |    (images/trifecta_dashboard.png)    | *[Screenshot here]*              |
-| **[▶ Click Here to Watch the Loom]** | **[✨ Interact with the dashboard]** | **[📓 Open the Colab Notebook]** |
+| Video Walkthrough (5 min)                            | Interactive Dashboard                                | Public Notebook                  |
+| ------------------------------------                 | ----------------------------------                   | -------------------------------- |
+|![Coming Soon]( "images/Coming soon Graphics.png" )   | ![Trifecta Dashboard](images/trifecta_dashboard.png) |
+| **[▶ Click Here to Watch the Loom]**                | **[✨ Interact with the dashboard]**               | **[📓 Open Data Ingest & ETL Notebook](https://colab.research.google.com/github/Yohansgit/Hospital_Readmission_Risk_Prediction/blob/main/notebooks/01_Data_Ingest_and_ETL_(PySpark).ipynb)**|
 ---
 **Target Audience:** Clinical Operations Leaders & Hiring Managers (Corporate/Health-Tech)
 
@@ -31,7 +31,7 @@ The high frequency of unplanned readmissions for diabetic patients within 30 day
 I developed a scalable machine learning pipeline to **predict which diabetic patients are most likely to be readmitted within 30 days**. This tool empowers hospital teams to prioritize high-risk patients for proactive, post-discharge interventions (e.g., follow-up calls, home care visits).     
   
 **📈 The Outcome**:       
-The final model (LightGBM) **identifies high-risk patients with 0.72 ROC AUC** (see performance note below). The analysis revealed that readmission risk is shaped by a mix of clinical severity, care transitions, and patient complexity. Key drivers include `Metformin adjustments`, `Discharge Disposition`, and `Time in Hospital`.    
+The final model (LightGBM) **identifies high-risk patients with 0.72 ROC AUC** and . The analysis revealed that readmission risk is shaped by a mix of clinical severity, care transitions, and patient complexity. Key drivers include `Metformin adjustments`, `Discharge Disposition`, and `Time in Hospital`.    
 
 ## 🚀 Part 3: Technical Architecture (The "How?")      
   
@@ -40,14 +40,14 @@ The final model (LightGBM) **identifies high-risk patients with 0.72 ROC AUC** (
 flowchart TD
     %% --- Nodes ---
     A[📝 Define the Problem]:::source
-    B[📥 Data collection & EDA]:::source
-    C[🛠 PySpark ETL on Databricks]:::process
-    D[🔍 Model Selection]:::process
-    E[🤖 Model Training<br>LightGBM]:::model
+    B[📥 Ingest Raw Data<br>(CSV/S3)]:::source
+    C[🛠 PySpark on Databricks]:::process
+    D[🔍 Train/Test Split]:::process
+    E[🤖 Distributed Training<br>(Train LightGBM Model)]:::model
     F[🔁 Cross Validation & Hyperparameter Tuning]:::model
     G{✅ Performance OK?}:::decision
-    H[📊 Prediction Output<br>Yes / No]:::output
-    I[🚀 Deployment & Monitoring]:::monitor
+    H[📊 Risk Scores to Power BI<br>Yes / No]:::output
+    I[🚀 Batch Inference Job]:::monitor
     J{⚠️ Data Drift Detected?}:::decision
     %% --- Flow Arrows ---
     A --> B --> C --> D --> E --> F-->G
@@ -100,10 +100,9 @@ Non-home discharges (e.g., to a rehab facility or skilled nursing facility) **in
    ➡️**Action:** The next step is to move this model from a static CSV to a **live EMR data stream**. The `PySpark` foundation is already built, allowing for a transition to real-time risk scoring.     
 
 ## 📊 Part 6: Model Performance
-A note on metrics for this imbalanced dataset. The target variable (`readmitted < 30 days`) only represents ~11% of the data. This means a naive model that always predicts "No Readmission" would have 89% accuracy.    
-Therefore, **Accuracy is a misleading metric.**
+A note on metrics for this imbalanced dataset. The target variable (`readmitted < 30 days`) only represents ~11% of the data. This means a naive model that always predicts "No Readmission" would have 89% accuracy. Therefore, **Accuracy is a misleading metric.**
+The primary metric for this business problem is **ROC AUC** (Area Under the Receiver Operating Characteristic curve), which measures the model's ability to distinguish between the positive and negative classes.   This performance enables the hospital to identify the top decile of riskky patients with significantly better than random selection.
 
-The primary metric for this business problem is **ROC AUC** (Area Under the Receiver Operating Characteristic curve), which measures the model's ability to distinguish between the positive and negative classes.     
 🔷**Final Model (LightGBM): ROC AUC 0.72**      
 
 ## 📁 Part 7: Repository & How to Run   
