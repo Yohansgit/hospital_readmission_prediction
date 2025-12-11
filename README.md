@@ -17,7 +17,7 @@ In this project, a machine learning solution to predict diabetic patient readmis
 | Video Walkthrough (5 min)                                      | Interactive Dashboard                                                     | Public Notebook                  |
 | ------------------------------------                           | ----------------------------------                                        | -------------------------------- |
 |                                                                |     
-| **[▶ Click here to view](https://streamable.com/qbn9ha)**     | **[✨ Interact with the dashboard](images/Hospital_readmission.pdf)**    | **[📓 Data Ingest & ETL](main/notebooks/01_Data_Ingest_and_ETL_(PySpark).ipynb)**|
+| **[▶ Click here to view](https://streamable.com/qbn9ha)**     | **[✨ Interact with the dashboard](images/Hospital_readmission.pdf)**     | **[📓 Data Ingest & ETL](notebooks/01_Data_Ingest_and_ETL_(PySpark).ipynb)**|
 ---
 **Target Audience:** Clinical Operations Leaders & Hiring Managers (Corporate/Health-Tech)    [Trifecta Dashboard](images/Hospital_readmission.pdf)
 
