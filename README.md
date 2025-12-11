@@ -131,7 +131,7 @@ ROC AUC **0.72**
 Download the "Diabetes 130-US hospitals" dataset (instructions in /`data/README.md`).   
 Import the PySpark notebooks into your Databricks environment.  
 Run the ETL -> Feature Engineering -> Modeling pipeline sequentially.  
-Open the Power BI file [Trifecta Dashboard](images/trifecta_dashboard.png) to explore the interactive results.   
+Open the Power BI file [Trifecta Dashboard](images/Hospital_readmission.pdf) to explore the interactive results.   
 
 ## 📄 License  
 This project is licensed under the **MIT License**.  
