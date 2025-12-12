@@ -10,17 +10,18 @@
 # Diabetic Patient Readmission Risk Prediction 
 ## 📋A Scalable E2E Solution using PySpark, Databricks, and Power BI
 
-In this project, a machine learning solution to predict diabetic patient readmission risk based on healthcare input data was developed. The implementation leverages **PySpark** for distributed data processing and **Power BI** for interactive visualization and business intelligence.
+In this project, a machine learning solution was developed to predict diabetic patient readmission risk based on healthcare data. The implementation leverages **PySpark** for distributed data processing and **Power BI** for interactive visualization and business intelligence.
 
 ## 🎥 Part 1: The Project "Trifecta"   
 
-| Video Walkthrough (5 min)                            | Interactive Dashboard                                                 | Public Notebook                  |
-| ------------------------------------                 | ----------------------------------                                    | -------------------------------- |
-|                                                      |     
-| **[▶ Click Here to Watch the Loom]**                 | **[✨ Interact with the dashboard](images/trifecta_dashboard.png)**   | **[📓 Data Ingest & ETL](colab-link)**|
----
+| Video Walkthrough (5 min)                                      | Interactive Dashboard                                                     | Public Notebook                  |
+| ------------------------------------                           | ----------------------------------                                        | -------------------------------- |
+|                                                                |     
+| **[▶ Click here to view](https://streamable.com/qbn9ha)**     | **[✨ Interact with the dashboard](images/Hospital_readmission.pdf)**     | **[📓 Data Ingest & ETL](notebooks/01_Data_Ingest_and_ETL_(PySpark).ipynb)**|
+
 **Target Audience:** Clinical Operations Leaders & Hiring Managers (Corporate/Health-Tech)
 
+---
 ## 🚀 Part 2: The Executive Summary (The "So What?")    
 **Fictional Client:** Head of Clinical Operations, 'CityView Health System'     
 
@@ -31,8 +32,9 @@ The high frequency of unplanned readmissions for diabetic patients within 30 day
 I developed a scalable machine learning pipeline to **predict which diabetic patients are most likely to be readmitted within 30 days**. This tool empowers hospital teams to prioritize high-risk patients for proactive, post-discharge interventions (e.g., follow-up calls, home care visits).     
   
 **📈 The Outcome**:       
-The final model (LightGBM) **identifies high-risk patients with 0.72 ROC AUC**. The analysis revealed that readmission risk is shaped by a mix of clinical severity, care transitions, and patient complexity. Key drivers include `Metformin adjustments`, `Discharge Disposition`, and `Time in Hospital`.    
+The final model (LightGBM) **identifies high-risk patients with 0.72 ROC AUC**. The analysis revealed that readmission risk is shaped by a mix of clinical severity, care transitions, and patient complexity. Key drivers include `Metformin adjustments`, `Discharge Disposition`, and `Time in Hospital`.  
 
+---
 ## 🚀 Part 3: Technical Architecture (The "How?")      
   
 ### 1. Project Architecture:     
@@ -72,6 +74,7 @@ Most such datasets contain over 100,000 patient encounters. A standard single-ma
 **🔷 Why Power BI?**        
 The model's output (a risk score) is useless unless it's in the hands of a non-technical clinician. I built an interactive Power BI dashboard to translate the model's complex output into a simple, actionable "High/Medium/Low Risk" flag for doctors and care managers.      
 
+---
 ## 🔍 Part 4: Insights Deep Dive (The "What Did You Find?")   
 
 **🎯 Finding 1: `Metformin` - A Key Medication Marker**          
@@ -89,7 +92,8 @@ Non-home discharges (e.g., to a rehab facility or skilled nursing facility) **in
 **Insight:** Risk increases significantly with length of stay. Stays of **8–10 days increase readmission risk by 19%** compared to shorter stays, indicating higher patient complexity.    
 **Priority Action:** Automatically flag patients with stays **>8 days** for a mandatory post-discharge consultation with a care specialist.     
 📊 ![Time in Hospital Chart](images/time_in_hospital_chart.png)      
-   
+
+---  
 ## Part 5: Actionable Recommendations (The "Now What?")    
 **For Care Management (The "Users"):**       
    ➡️**Action:** Use the Power BI dashboard to **stratify all discharging patients** into risk tiers. Enroll all "High-Risk" patients in an automated 48-hour follow-up call system.      
@@ -97,7 +101,8 @@ Non-home discharges (e.g., to a rehab facility or skilled nursing facility) **in
    ➡️**Action:** Launch a 'deep-dive' investigation into the **top 3 `Discharge Dispositions`** driving readmissions to identify gaps in our partner facility network.       
 **For the Data & IT Team (The "Peers"):**     
    ➡️**Action:** The next step is to move this model from a static CSV to a **live EMR data stream**. The `PySpark` foundation is already built, allowing for a transition to real-time risk scoring.     
-
+   
+---
 ## 📊 Part 6: Model Performance
 A note on metrics for this imbalanced dataset. The target variable (`readmitted < 30 days`) only represents ~11% of the data. This means a naive model that always predicts "No Readmission" would have 89% accuracy. Therefore, **Accuracy is a misleading metric.**
 The primary metric for this business problem is **ROC AUC** (Area Under the Receiver Operating Characteristic curve), which measures the model's ability to distinguish between the positive and negative classes.   This performance enables the hospital to identify the top decile of risky patients with significantly better than random selection.
@@ -105,6 +110,7 @@ The primary metric for this business problem is **ROC AUC** (Area Under the Rece
 🔷**Final Model (LightGBM):**
 ROC AUC **0.72**      
 
+---
 ## 📁 Part 7: Repository & How to Run   
 
 **1. Repository Structure:**   
