@@ -67,6 +67,23 @@ flowchart TD
     classDef output fill:#66BB6A,stroke:#2E7D32,color:#fff;
     classDef monitor fill:#AB47BC,stroke:#6A1B9A,color:#fff;
 ```
+---
+
+```mermaid   
+flowchart LR
+    A[📝 Problem Definition] --> B[📥 Ingest Data<br>S3/CSV]
+    B --> C[🛠 ETL & Features<br>PySpark/Databricks]
+    C --> D[🤖 Train Model<br>LightGBM]
+    D --> E{✅ ROC AUC > 0.70?}
+    E -- No --> F[🔁 Tune Hyperparameters]
+    F --> D
+    E -- Yes --> G[📊 Deploy to Power BI]
+    G --> H[🚀 Batch Inference]
+    H --> I{⚠️ Data Drift?}
+    I -- Yes --> F
+    I -- No --> H
+    ```
+
 ### 2. Strategic Tech Choices:
 
 **🔷 Why PySpark on Databricks?**           
